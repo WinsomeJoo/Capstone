@@ -1,6 +1,7 @@
 package capstone.daily.repository;
 
 
+import capstone.daily.dto.UpdateDailyPostDto;
 import capstone.daily.vo.DailyPost;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -15,6 +16,12 @@ public class DailyPostRepository {
     public DailyPost save(DailyPost  dailyPost){
         dailyPostMapper.save(dailyPost);
         return dailyPost;
+    }
+
+
+    public UpdateDailyPostDto update(int dailyPostId,UpdateDailyPostDto dailyPostDto){
+        dailyPostMapper.update(dailyPostId,dailyPostDto);
+        return dailyPostDto;
     }
 
 

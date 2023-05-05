@@ -1,13 +1,11 @@
 package capstone.daily.controller;
 
 
+import capstone.daily.dto.UpdateDailyPostDto;
 import capstone.daily.service.DailyPostService;
 import capstone.daily.vo.DailyPost;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,6 +19,13 @@ public class DailyPostController {
         dailyPostService.save(dailyPost);
         return dailyPost;
     }
+
+    @PostMapping("/{dailyPostId}/edit")
+    public UpdateDailyPostDto update(@PathVariable int dailyPostId, @RequestBody UpdateDailyPostDto updateDailyPostDto) {
+        dailyPostService.update(dailyPostId, updateDailyPostDto);
+        return updateDailyPostDto;
+    }
+
 
 
 }

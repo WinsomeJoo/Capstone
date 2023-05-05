@@ -1,5 +1,6 @@
 package capstone.daily.service;
 
+import capstone.daily.dto.UpdateDailyPostDto;
 import capstone.daily.repository.DailyPostRepository;
 import capstone.daily.vo.DailyPost;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,17 @@ public class DailyPostService {
         dailyPost.setRegisterAt(now);
         dailyPostRepository.save(dailyPost);
         return dailyPost;
+    }
+
+    public UpdateDailyPostDto update(int dailyPostId, UpdateDailyPostDto updateDailyPostDto){
+        Timestamp now = Timestamp.valueOf(LocalDateTime.now());
+        //updated createdAt 삽입
+        updateDailyPostDto.setUpdatedAt(now);
+        //daily PostId 삽입
+        updateDailyPostDto.setDailyPostId(dailyPostId);
+
+        dailyPostRepository.update(dailyPostId,updateDailyPostDto);
+        return updateDailyPostDto;
     }
 
 

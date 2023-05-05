@@ -9,7 +9,15 @@
         values (#{userId}, #{title}, #{content},#{image},#{registerAt})
     </insert>
 
-
+    <update id="update">
+        update dailyPost
+        set user_id=#{dailyPostDto.userId},
+            title=#{dailyPostDto.title},
+            content=#{dailyPostDto.content},
+            image=#{dailyPostDto.image},
+            updated_at=#{dailyPostDto.updatedAt}
+        where daily_post_id = #{dailyPostId}
+    </update>
 
 
 
