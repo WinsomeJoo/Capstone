@@ -1,11 +1,15 @@
 package capstone.daily.controller;
 
 
+import capstone.daily.dto.ThumbnailDailyPostDto;
 import capstone.daily.dto.UpdateDailyPostDto;
 import capstone.daily.service.DailyPostService;
 import capstone.daily.vo.DailyPost;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,6 +30,11 @@ public class DailyPostController {
         return updateDailyPostDto;
     }
 
+    @GetMapping("")
+    public List<ThumbnailDailyPostDto> findThumbnail(@RequestBody ThumbnailDailyPostDto thumbnailDailyPostDto) {
+        List<ThumbnailDailyPostDto> thumbnail = dailyPostService.findThumbnail(thumbnailDailyPostDto);
+        return thumbnail;
+    }
 
 
 }

@@ -1,16 +1,17 @@
 package capstone.daily.dto;
 
 
-import lombok.*;
+import lombok.Data;
 
 import java.sql.Timestamp;
 
 @Data
-public class UpdateDailyPostDto {
+public class ThumbnailDailyPostDto {
+
     private int dailyPostId;
     private int userId;
     private String title;
-    private String content;
     private String image;
+    private Timestamp registerAt;
     private Timestamp updatedAt;
 }

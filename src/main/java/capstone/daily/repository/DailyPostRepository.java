@@ -1,6 +1,7 @@
 package capstone.daily.repository;
 
 
+import capstone.daily.dto.ThumbnailDailyPostDto;
 import capstone.daily.dto.UpdateDailyPostDto;
 import capstone.daily.vo.DailyPost;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,16 @@ public class DailyPostRepository {
         dailyPostMapper.update(dailyPostId,dailyPostDto);
         return dailyPostDto;
     }
+
+    public List<ThumbnailDailyPostDto> findThumbnail(ThumbnailDailyPostDto thumbnailDailyPostDto){
+        List<ThumbnailDailyPostDto> thumbnail = dailyPostMapper.findThumbnail(thumbnailDailyPostDto);
+
+        return thumbnail;
+    }
+
+
+
+
 
 
 }

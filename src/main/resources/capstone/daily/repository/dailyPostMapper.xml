@@ -20,5 +20,12 @@
     </update>
 
 
+    <select id="findThumbnail" resultType="DailyPost">
+        select daily_post_id,user_id,title,image,register_at,updated_at
+        from DailyPost
+    </select>
+
+
+
 
 </mapper>

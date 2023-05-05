@@ -1,5 +1,6 @@
 package capstone.daily.service;
 
+import capstone.daily.dto.ThumbnailDailyPostDto;
 import capstone.daily.dto.UpdateDailyPostDto;
 import capstone.daily.repository.DailyPostRepository;
 import capstone.daily.vo.DailyPost;
@@ -34,6 +35,11 @@ public class DailyPostService {
 
         dailyPostRepository.update(dailyPostId,updateDailyPostDto);
         return updateDailyPostDto;
+    }
+
+    public List<ThumbnailDailyPostDto> findThumbnail(ThumbnailDailyPostDto thumbnailDailyPostDto){
+        List<ThumbnailDailyPostDto> thumbnail = dailyPostRepository.findThumbnail(thumbnailDailyPostDto);
+        return thumbnail;
     }
 
 
