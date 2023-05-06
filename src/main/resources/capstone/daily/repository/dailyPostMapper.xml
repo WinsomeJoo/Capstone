@@ -4,12 +4,12 @@
 <mapper namespace="capstone.daily.repository.DailyPostMapper">
 
 
-    <insert id="save" useGeneratedKeys="true" keyProperty="dailyPostId">
+    <insert id="saveDailyPost" useGeneratedKeys="true" keyProperty="dailyPostId">
         insert into DailyPost (user_id, title, content,image,register_at)
         values (#{userId}, #{title}, #{content},#{image},#{registerAt})
     </insert>
 
-    <update id="update">
+    <update id="updateDailyPost">
         update dailyPost
         set user_id=#{dailyPostDto.userId},
             title=#{dailyPostDto.title},
@@ -25,7 +25,9 @@
         from DailyPost
     </select>
 
-
+    <delete id="deleteDailyPost">
+        delete from DailyPost where daily_post_id=#{dailyPostId}
+    </delete>
 
 
 </mapper>

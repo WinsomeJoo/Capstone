@@ -19,21 +19,21 @@ public class DailyPostService {
     private final DailyPostRepository dailyPostRepository;
 
 
-    public DailyPost save(DailyPost dailyPost){
+    public DailyPost saveDailyPost(DailyPost dailyPost){
         Timestamp now = Timestamp.valueOf(LocalDateTime.now());
         dailyPost.setRegisterAt(now);
-        dailyPostRepository.save(dailyPost);
+        dailyPostRepository.saveDailyPost(dailyPost);
         return dailyPost;
     }
 
-    public UpdateDailyPostDto update(int dailyPostId, UpdateDailyPostDto updateDailyPostDto){
+    public UpdateDailyPostDto updateDailyPost(int dailyPostId, UpdateDailyPostDto updateDailyPostDto){
         Timestamp now = Timestamp.valueOf(LocalDateTime.now());
         //updated createdAt 삽입
         updateDailyPostDto.setUpdatedAt(now);
         //daily PostId 삽입
         updateDailyPostDto.setDailyPostId(dailyPostId);
 
-        dailyPostRepository.update(dailyPostId,updateDailyPostDto);
+        dailyPostRepository.updateDailyPost(dailyPostId,updateDailyPostDto);
         return updateDailyPostDto;
     }
 
@@ -42,7 +42,9 @@ public class DailyPostService {
         return thumbnail;
     }
 
-
+    public void deleteDailyPost(int dailyPostId){
+        dailyPostRepository.deleteDailyPost(dailyPostId);
+    }
 
 
 

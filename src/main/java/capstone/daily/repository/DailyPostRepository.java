@@ -14,14 +14,14 @@ import java.util.List;
 public class DailyPostRepository {
     private final DailyPostMapper dailyPostMapper;
 
-    public DailyPost save(DailyPost  dailyPost){
-        dailyPostMapper.save(dailyPost);
+    public DailyPost saveDailyPost(DailyPost  dailyPost){
+        dailyPostMapper.saveDailyPost(dailyPost);
         return dailyPost;
     }
 
 
-    public UpdateDailyPostDto update(int dailyPostId,UpdateDailyPostDto dailyPostDto){
-        dailyPostMapper.update(dailyPostId,dailyPostDto);
+    public UpdateDailyPostDto updateDailyPost(int dailyPostId,UpdateDailyPostDto dailyPostDto){
+        dailyPostMapper.updateDailyPost(dailyPostId,dailyPostDto);
         return dailyPostDto;
     }
 
@@ -31,6 +31,10 @@ public class DailyPostRepository {
         return thumbnail;
     }
 
+    public void deleteDailyPost(int dailyPostId){
+        dailyPostMapper.deleteDailyPost(dailyPostId);
+
+    }
 
 
 

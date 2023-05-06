@@ -19,14 +19,14 @@ public class DailyPostController {
     private final DailyPostService dailyPostService;
 
     @PostMapping("")
-    public DailyPost save(@RequestBody DailyPost dailyPost){
-        dailyPostService.save(dailyPost);
+    public DailyPost saveDailyPost(@RequestBody DailyPost dailyPost){
+        dailyPostService.saveDailyPost(dailyPost);
         return dailyPost;
     }
 
     @PostMapping("/{dailyPostId}/edit")
-    public UpdateDailyPostDto update(@PathVariable int dailyPostId, @RequestBody UpdateDailyPostDto updateDailyPostDto) {
-        dailyPostService.update(dailyPostId, updateDailyPostDto);
+    public UpdateDailyPostDto updateDailyPost(@PathVariable int dailyPostId, @RequestBody UpdateDailyPostDto updateDailyPostDto) {
+        dailyPostService.updateDailyPost(dailyPostId, updateDailyPostDto);
         return updateDailyPostDto;
     }
 
@@ -34,6 +34,12 @@ public class DailyPostController {
     public List<ThumbnailDailyPostDto> findThumbnail(@RequestBody ThumbnailDailyPostDto thumbnailDailyPostDto) {
         List<ThumbnailDailyPostDto> thumbnail = dailyPostService.findThumbnail(thumbnailDailyPostDto);
         return thumbnail;
+    }
+
+
+    @DeleteMapping("{dailyPostId}")
+    public void deleteDailyPost(@PathVariable int dailyPostId){
+        dailyPostService.deleteDailyPost(dailyPostId);
     }
 
 

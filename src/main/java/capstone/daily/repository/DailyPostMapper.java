@@ -10,9 +10,11 @@ import java.util.List;
 
 @Mapper
 public interface DailyPostMapper {
-    void save(DailyPost dailyPost);
+    void saveDailyPost(DailyPost dailyPost);
 
-    void update(@Param("dailyPostId")int dailyPostId,@Param("dailyPostDto") UpdateDailyPostDto dailyPostDt);
+    void updateDailyPost(@Param("dailyPostId")int dailyPostId,@Param("dailyPostDto") UpdateDailyPostDto dailyPostDt);
 
     List<ThumbnailDailyPostDto> findThumbnail(ThumbnailDailyPostDto thumbnailDailyPostDto);
+
+    void deleteDailyPost(int dailyPostId);
 }
